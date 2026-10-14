@@ -4,9 +4,6 @@ import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { ArrowRight, ArrowUpRight, BrainCircuit, ChartNoAxesCombined, Code2, Palette } from "lucide-react";
-import { FaAws } from "react-icons/fa";
-import { SiFigma, SiGooglecloud, SiReact } from "react-icons/si";
-import { TechnologyIcon } from "@/components/TechnologyIcon";
 
 const services = [
   { title: "Web Development", Icon: Code2, href: "/service/web-development", position: "left-[3%] top-[18%]", delay: "0s" },
@@ -16,7 +13,7 @@ const services = [
 ];
 
 function HeroGlobe() {
-  return <div className="relative mx-auto aspect-square w-full max-w-[570px]" aria-label="Explore Alaqa services">
+  return <div className="relative mx-auto aspect-square w-full max-w-[260px] sm:max-w-[400px] lg:max-w-[570px]" aria-label="Explore Alaqa services">
     <div aria-hidden className="absolute inset-[8%] rounded-full bg-[#598af6]/10 blur-3xl" />
     <svg aria-hidden viewBox="0 0 600 600" className="pointer-events-none absolute inset-0 h-full w-full overflow-visible">
       <defs><linearGradient id="hero-orbit-line" x1="0" y1="0" x2="1" y2="1"><stop stopColor="#97b7ff" stopOpacity="0.6" /><stop offset="1" stopColor="#97b7ff" stopOpacity="0.06" /></linearGradient></defs>
@@ -31,9 +28,9 @@ function HeroGlobe() {
       <Image src="/images/alaqa-logo.png" alt="" width={1493} height={674} unoptimized className="h-auto w-[31%] brightness-0 invert opacity-65" />
       <p className="mt-4 text-[8px] font-medium uppercase tracking-[0.24em] text-white/65 sm:text-[10px]">Ideas <span className="mx-1 text-white/35">→</span> Products <span className="mx-1 text-white/35">→</span> Growth</p>
     </div>
-    {services.map(({title,Icon,href,position,delay})=><Link key={title} href={href} className={"hero-service-float absolute z-10 flex w-[19%] min-w-[76px] flex-col items-center gap-2 rounded-2xl border border-white/20 bg-[#17202f]/65 px-2 py-4 text-center text-white shadow-[0_12px_40px_rgba(0,0,0,0.3),inset_0_1px_0_rgba(255,255,255,0.1)] backdrop-blur-xl transition-colors hover:border-[#a7c2ff]/65 hover:bg-[#26344c]/80 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#b3cbff] sm:gap-3 sm:rounded-[1.4rem] sm:py-5 "+position} style={{animationDelay:delay}}>
-      <Icon className="h-6 w-6 text-[#d5e1ff] sm:h-8 sm:w-8" strokeWidth={1.6} />
-      <span className="max-w-[95px] text-[10px] font-medium leading-snug text-white/85 sm:text-xs">{title}</span>
+    {services.map(({title,Icon,href,position,delay})=><Link key={title} href={href} className={"hero-service-float absolute z-10 flex w-[19%] min-w-[58px] sm:min-w-[76px] flex-col items-center gap-1.5 rounded-xl border border-white/20 bg-[#17202f]/65 px-1.5 py-2.5 text-center text-white shadow-[0_12px_40px_rgba(0,0,0,0.3),inset_0_1px_0_rgba(255,255,255,0.1)] backdrop-blur-xl transition-colors hover:border-[#a7c2ff]/65 hover:bg-[#26344c]/80 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#b3cbff] sm:gap-3 sm:px-2 sm:rounded-[1.4rem] sm:py-5 "+position} style={{animationDelay:delay}}>
+      <Icon className="h-5 w-5 text-[#d5e1ff] sm:h-8 sm:w-8" strokeWidth={1.6} />
+      <span className="max-w-[95px] text-[9px] font-medium leading-snug text-white/85 sm:text-xs">{title}</span>
     </Link>)}
     <div aria-hidden className="pointer-events-none absolute -left-3 top-0 hidden -rotate-12 text-center font-serif text-lg italic leading-tight text-white/40 xl:block">Ideas<br />to reality<ArrowUpRight className="ml-16 h-6 w-6 rotate-45" strokeWidth={1} /></div>
     <div aria-hidden className="pointer-events-none absolute -right-5 top-[12%] hidden -rotate-12 font-serif text-lg italic leading-tight text-white/40 xl:block">Smarter<br />solutions</div>
@@ -42,7 +39,7 @@ function HeroGlobe() {
 }
 
 export function Hero({ contentReady = true }: { contentReady?: boolean }) {
-  return <section id="home" className="relative isolate overflow-hidden bg-[#070b10] pb-10 pt-28 text-white sm:pb-12 sm:pt-32 lg:pt-20 xl:pt-24 lg:pb-8">
+  return <section id="home" className="relative isolate overflow-hidden bg-[#070b10] pb-6 pt-20 text-white sm:pb-12 sm:pt-32 lg:pt-20 xl:pt-24 lg:pb-8">
     <div aria-hidden className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(ellipse_at_80%_35%,rgba(76,107,176,0.11),transparent_50%)]" />
     <div aria-hidden className="hero-dust pointer-events-none absolute inset-0 -z-10 opacity-40" />
     <svg aria-hidden viewBox="0 0 1600 220" preserveAspectRatio="none" className="pointer-events-none absolute bottom-0 left-0 -z-10 h-44 w-full opacity-55">
@@ -51,36 +48,30 @@ export function Hero({ contentReady = true }: { contentReady?: boolean }) {
       <path d="M1100 220 Q1400 20 1600 0" fill="none" stroke="#799fea" strokeOpacity="0.15" />
     </svg>
     <div className="container-padded">
-      <div className="grid items-center gap-8 lg:grid-cols-[1.08fr_1fr] lg:gap-4">
+      <div className="grid items-center gap-3 sm:gap-5 lg:grid-cols-[1.08fr_1fr] lg:gap-4">
         <motion.div initial={false} animate={{opacity:contentReady?1:0,y:contentReady?0:16}} transition={{duration:0.65}} className="relative z-20">
           <p className="inline-flex max-w-full items-center gap-2.5 rounded-full border border-white/10 bg-white/[0.055] px-4 py-2.5 text-[9px] font-semibold uppercase tracking-[0.16em] text-[#b5bdcc] shadow-[inset_0_1px_0_rgba(255,255,255,0.04)] sm:text-[11px]">
             <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-[#c3dcff] shadow-[0_0_10px_#79acff]" />Practical technology. Clear possibilities.
           </p>
-          <h1 className="mt-6 text-[clamp(2.5rem,4.65vw,4.65rem)] font-bold leading-[1.05] tracking-[-0.04em]">
+          <h1 className="mt-4 text-[clamp(1.9rem,4.65vw,4.65rem)] lg:mt-6 font-bold leading-[1.05] tracking-[-0.04em]">
             <span className="block">Build Smarter.</span>
             <span className="block">Move Your</span>
             <span className="block">Business <span className="bg-gradient-to-r from-[#a8d2ff] via-[#b6caff] to-[#809ef7] bg-clip-text text-transparent">Forward.</span></span>
           </h1>
-          <p className="mt-6 max-w-xl text-base leading-relaxed text-[#b6bcc7] sm:text-lg xl:text-xl">Alaqa creates useful websites, applications, and AI tools that simplify daily work and help your business grow.</p>
-          <div className="mt-8 flex flex-wrap gap-3 sm:gap-4">
-            <Link href="#contact" className="group inline-flex min-h-14 items-center justify-center gap-3 rounded-2xl border border-white/80 bg-[#f8faff] px-6 text-sm font-semibold text-[#111722] shadow-[0_0_28px_rgba(111,150,255,0.25)] transition hover:bg-white hover:shadow-[0_0_35px_rgba(111,150,255,0.4)] sm:px-8 sm:text-base">Plan Your Project<ArrowRight className="h-4 w-4 transition group-hover:translate-x-1" /></Link>
-            <Link href="#projects" className="inline-flex min-h-14 items-center justify-center rounded-2xl border border-white/30 bg-white/[0.015] px-6 text-sm font-semibold text-white transition hover:border-white/60 hover:bg-white/5 sm:px-8 sm:text-base">Explore Our Projects</Link>
+          <p className="mt-3 max-w-xl text-sm sm:mt-6 sm:text-base leading-relaxed text-[#b6bcc7] sm:text-lg xl:text-xl">Alaqa creates useful websites, applications, and AI tools that simplify daily work and help your business grow.</p>
+          <div className="mt-5 grid grid-cols-2 gap-2 sm:mt-8 sm:flex sm:flex-wrap sm:gap-4">
+            <Link href="#contact" className="group inline-flex min-h-12 sm:min-h-14 items-center justify-center gap-2 rounded-xl border border-white/80 sm:gap-3 sm:rounded-2xl bg-[#f8faff] px-3 text-[11px] font-semibold text-[#111722] shadow-[0_0_28px_rgba(111,150,255,0.25)] transition hover:bg-white hover:shadow-[0_0_35px_rgba(111,150,255,0.4)] sm:px-8 sm:text-base">Plan Your Project<ArrowRight className="h-4 w-4 transition group-hover:translate-x-1" /></Link>
+            <Link href="#projects" className="inline-flex min-h-12 sm:min-h-14 items-center justify-center rounded-xl border border-white/30 sm:rounded-2xl bg-white/[0.015] px-3 text-[11px] font-semibold text-white transition hover:border-white/60 hover:bg-white/5 sm:px-8 sm:text-base">Explore Our Projects</Link>
           </div>
         </motion.div>
         <motion.div initial={false} animate={{opacity:contentReady?1:0,scale:contentReady?1:0.97}} transition={{duration:0.85,delay:0.1}} className="relative min-w-0">
           <HeroGlobe />
         </motion.div>
       </div>
-      <div className="relative mt-8 grid items-center gap-8 border-t border-white/5 pt-8 lg:mt-6 lg:grid-cols-[1.08fr_1fr] lg:gap-12">
+      <div className="relative mt-6 hidden border-t border-white/5 pt-6 lg:block">
         <dl className="grid grid-cols-2 gap-y-6 sm:grid-cols-4">
           {[["10","Service capabilities"],["16","Industries supported"],["04","Ways to work together"],["05","Delivery stages"]].map(([value,label],index)=><div key={label} className={"pr-3 "+(index>0?"border-l border-white/10 pl-4":"")}><dt className="text-2xl font-bold tracking-tight text-white">{value}</dt><dd className="mt-2 text-xs leading-relaxed text-white/45 sm:text-sm">{label}</dd></div>)}
         </dl>
-        <div>
-          <p className="mb-4 text-[9px] font-medium uppercase tracking-[0.18em] text-white/40">Built with proven technologies</p>
-          <div className="flex flex-wrap items-center gap-x-6 gap-y-4">
-            {[{name:"AWS",Icon:FaAws,color:"#FF9900"},{name:"GCP",label:"Google Cloud",Icon:SiGooglecloud,color:"#4285F4"},{name:"React",Icon:SiReact,color:"#61DAFB"},{name:"Figma",Icon:SiFigma,color:"#F24E1E"}].map(({name,label,Icon,color})=><span key={name} className="inline-flex items-center gap-2 text-xs text-white/55 sm:text-sm"><TechnologyIcon name={name} Icon={Icon} color={color} className="h-6 w-6" />{label||name}</span>)}
-          </div>
-        </div>
       </div>
     </div>
   </section>;

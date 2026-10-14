@@ -1,52 +1,45 @@
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, ArrowUpRight, MapPin, PackageCheck, Route, Truck } from "lucide-react";
+import { ArrowUpRight, CarFront, MapPin, Route, ShieldCheck } from "lucide-react";
 import { AnimateIn } from "@/components/AnimateIn";
 
-const capabilities = [
-  { Icon: MapPin, title: "See the bigger picture", text: "Bring fleet locations, shipment progress, and operational information into one clear dashboard." },
-  { Icon: Route, title: "Plan a better journey", text: "Coordinate routes, dispatch, and deliveries with tools built around your daily workflows." },
-  { Icon: PackageCheck, title: "Keep everyone connected", text: "Give drivers practical mobile tools and customers useful updates along the way." },
-];
-
 export function HomeLogistics() {
-  return <section id="logistics" className="relative scroll-mt-24 overflow-hidden border-y border-slate-200/70 bg-white/40 py-16 sm:py-24 dark:border-slate-800 dark:bg-white/[0.025]">
-    <div aria-hidden className="pointer-events-none absolute -right-32 top-20 h-96 w-96 rounded-full border border-slate-300/40 dark:border-slate-700/40" />
-    <div className="container-padded relative">
-      <div className="grid items-center gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:gap-16">
-        <AnimateIn>
-          <p className="section-eyebrow">Industry spotlight</p>
-          <p className="mt-5 inline-flex items-center gap-2 rounded-full border border-slate-300 bg-white/70 px-3 py-1.5 text-xs font-semibold text-slate-600 dark:border-slate-700 dark:bg-white/5 dark:text-slate-300"><Truck className="h-3.5 w-3.5" />Logistics &amp; Transportation</p>
-          <h2 className="mt-5 text-balance text-4xl font-bold leading-tight tracking-tight text-slate-900 sm:text-5xl lg:text-6xl dark:text-white">Every delivery.<br /><span className="text-slate-500 dark:text-slate-400">A clearer picture.</span></h2>
-          <p className="mt-6 max-w-lg text-base leading-relaxed text-slate-600 sm:text-lg dark:text-slate-400">From the warehouse to the final stop, better information keeps your business moving. Alaqa connects your fleet, your team, and your customers with practical digital tools.</p>
-          <Link href="/industries#industry-logistics-transportation" className="mt-8 inline-flex items-center gap-3 rounded-xl bg-brand-950 px-5 py-3.5 text-sm font-semibold text-white transition hover:bg-brand-800 dark:bg-white dark:text-brand-950 dark:hover:bg-slate-200">Explore logistics solutions<ArrowUpRight className="h-4 w-4" /></Link>
+  return <section id="logistics" className="relative scroll-mt-24 overflow-hidden bg-[#101112] py-16 text-white sm:py-24">
+    <div className="container-padded">
+      <div className="mb-10 flex flex-col justify-between gap-6 lg:flex-row lg:items-end">
+        <AnimateIn className="max-w-3xl">
+          <p className="text-xs font-medium uppercase tracking-[0.25em] text-[#c3b49a]">Logistics &amp; Transportation</p>
+          <h2 className="mt-4 text-balance text-3xl font-medium leading-tight tracking-tight sm:text-5xl lg:text-6xl">A smarter journey.<br /><span className="text-white/50">An exceptional experience.</span></h2>
         </AnimateIn>
-        <AnimateIn delay={0.08}>
-          <div className="relative rounded-[2rem] border border-slate-200 bg-white p-2.5 shadow-soft-lg sm:p-3 dark:border-slate-700 dark:bg-surface-card">
-            <div className="relative aspect-[4/3] overflow-hidden rounded-[1.5rem] sm:aspect-[5/4]">
-              <Image src="/images/homepage/logistics-transportation.jpg" alt="A freight truck travelling along a mountain road" fill sizes="(max-width: 1024px) 95vw, 55vw" className="object-cover" />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/65 via-transparent to-black/10" />
-              <span className="absolute left-4 top-4 inline-flex items-center gap-2 rounded-full border border-white/20 bg-black/40 px-3 py-2 text-xs font-medium text-white backdrop-blur-md sm:left-6 sm:top-6"><span className="h-1.5 w-1.5 rounded-full bg-white" />Built for the journey</span>
-              <div className="absolute inset-x-4 bottom-4 rounded-2xl border border-white/25 bg-white/95 p-4 backdrop-blur-xl sm:inset-x-6 sm:bottom-6 sm:p-5 dark:border-white/15 dark:bg-brand-950/90">
-                <div className="mb-4 flex items-center justify-between"><p className="text-xs font-semibold uppercase tracking-[0.15em] text-slate-500 dark:text-slate-400">From dispatch to delivery</p><Route className="h-4 w-4 text-slate-400" /></div>
-                <div className="flex items-center gap-2 sm:gap-4">
-                  {[{Icon:Truck,label:"Dispatch"},{Icon:Route,label:"On the road"},{Icon:PackageCheck,label:"Delivery"}].map(({Icon,label},index)=><div key={label} className="flex min-w-0 flex-1 items-center gap-2">
-                    <div className="flex flex-1 flex-col items-center gap-2"><span className="flex h-9 w-9 items-center justify-center rounded-full bg-slate-100 text-slate-800 dark:bg-white/10 dark:text-white"><Icon className="h-4 w-4" /></span><span className="whitespace-nowrap text-[10px] font-medium text-slate-600 sm:text-xs dark:text-slate-300">{label}</span></div>
-                    {index<2&&<ArrowRight className="h-3 w-3 shrink-0 text-slate-400" />}
-                  </div>)}
-                </div>
-              </div>
+        <AnimateIn className="max-w-sm"><p className="text-sm leading-relaxed text-white/55 sm:text-base">Thoughtful digital solutions for premium transport, connected fleets, and seamless operations. Built around the people behind every journey.</p></AnimateIn>
+      </div>
+      <div className="grid gap-4 lg:grid-cols-[1.65fr_1fr] lg:gap-6">
+        <AnimateIn>
+          <div className="group relative aspect-[4/3] overflow-hidden rounded-[1.5rem] border border-white/10 sm:aspect-[16/10]">
+            <Image src="/images/homepage/luxury-transport.png" alt="A graphite luxury sedan on a coastal road at dusk" fill sizes="(max-width: 1024px) 95vw, 60vw" className="object-cover transition duration-700 group-hover:scale-[1.025]" style={{ filter: "none" }} />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/15" />
+            <span className="absolute left-5 top-5 rounded-full border border-white/25 bg-black/30 px-3 py-2 text-[10px] font-medium uppercase tracking-[0.16em] text-white/80 backdrop-blur-md sm:left-7 sm:top-7">Precision in motion</span>
+            <div className="absolute inset-x-5 bottom-6 flex items-end justify-between gap-4 sm:inset-x-7 sm:bottom-7">
+              <div><p className="text-[10px] uppercase tracking-[0.2em] text-white/50">Connected transport</p><p className="mt-2 text-xl font-medium tracking-tight sm:text-3xl">Every detail. Every destination.</p></div>
+              <CarFront className="hidden h-7 w-7 shrink-0 text-[#c3b49a] sm:block" strokeWidth={1.3} />
             </div>
           </div>
         </AnimateIn>
+        <AnimateIn delay={0.06} className="flex flex-col gap-4 lg:gap-6">
+          <div className="relative aspect-[16/9] overflow-hidden rounded-[1.5rem] border border-white/10 lg:aspect-auto lg:flex-1">
+            <Image src="/images/homepage/luxury-interior.png" alt="Refined leather seating and interior details in a luxury vehicle" fill sizes="(max-width: 1024px) 95vw, 35vw" className="object-cover" style={{ filter: "none" }} />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" /><p className="absolute bottom-5 left-5 text-xs font-medium tracking-wide text-white/85">Designed around the passenger.</p>
+          </div>
+          <div className="rounded-[1.5rem] border border-white/10 bg-white/[0.035] p-6 sm:p-7">
+            <p className="text-[10px] uppercase tracking-[0.2em] text-[#c3b49a]">From booking to arrival</p>
+            <p className="mt-3 text-xl font-medium tracking-tight text-white">Bring the entire journey together.</p>
+            <p className="mt-3 text-sm leading-relaxed text-white/50">Booking tools, driver applications, and clear customer updates, connected through a dependable operational platform.</p>
+            <Link href="/industries#industry-logistics-transportation" className="mt-5 inline-flex items-center gap-3 text-sm font-semibold text-[#e0d3bc] transition hover:text-white">Explore transport solutions<ArrowUpRight className="h-4 w-4" /></Link>
+          </div>
+        </AnimateIn>
       </div>
-      <div className="mt-10 grid gap-4 sm:mt-14 md:grid-cols-3">
-        {capabilities.map(({Icon,title,text},index)=><AnimateIn key={title} delay={index*0.05}>
-          <article className="h-full rounded-2xl border border-slate-200 bg-white/80 p-6 transition hover:border-slate-400 dark:border-slate-700 dark:bg-surface-card/65">
-            <div className="mb-5 flex items-center justify-between"><span className="grid h-10 w-10 place-items-center rounded-xl bg-slate-100 text-slate-800 dark:bg-white/10 dark:text-white"><Icon className="h-5 w-5" strokeWidth={1.6} /></span><span className="text-xs font-medium tabular-nums text-slate-400">0{index+1}</span></div>
-            <h3 className="text-lg font-bold tracking-tight text-slate-900 dark:text-white">{title}</h3><p className="mt-3 text-sm leading-relaxed text-slate-600 sm:text-base dark:text-slate-400">{text}</p>
-          </article>
-        </AnimateIn>)}
+      <div className="mt-8 grid gap-5 border-t border-white/10 pt-7 md:grid-cols-3 sm:mt-10 sm:pt-9">
+        {[{Icon:MapPin,title:"Fleet visibility",text:"Clear operational information, in one place."},{Icon:Route,title:"Journey coordination",text:"Tools for routes, bookings, and dispatch."},{Icon:ShieldCheck,title:"Passenger experience",text:"Useful updates at every stage of the journey."}].map(({Icon,title,text},i)=><AnimateIn key={title} delay={i*0.04}><div className="flex gap-4"><Icon className="mt-1 h-5 w-5 shrink-0 text-[#c3b49a]" strokeWidth={1.4} /><div><h3 className="text-sm font-medium text-white">{title}</h3><p className="mt-2 text-xs leading-relaxed text-white/45 sm:text-sm">{text}</p></div></div></AnimateIn>)}
       </div>
     </div>
   </section>;
