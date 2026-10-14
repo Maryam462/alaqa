@@ -154,7 +154,7 @@ export function Navbar() {
           />
           <Link
             href="/contact"
-            className="btn-primary hidden px-5 py-2.5 text-base sm:inline-flex"
+            className={cn("hidden px-5 py-2.5 text-base sm:inline-flex", pathname === "/" && overHero ? "items-center justify-center rounded-full bg-[#f8faff] font-semibold text-[#111722] shadow-[0_0_24px_rgba(165,190,255,0.2)] transition hover:bg-white" : "btn-primary")}
           >
             Get A Quote
           </Link>

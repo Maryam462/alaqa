@@ -499,3 +499,21 @@
     filter: grayscale(1);
   }
 }
+
+/* Homepage globe hero */
+.hero-service-float { animation: heroServiceFloat 7s ease-in-out infinite; }
+.hero-globe-star { filter: drop-shadow(0 0 5px #a7c7ff); }
+.hero-dust {
+  background-image: radial-gradient(circle at 12% 20%, #a5b4d4 0 1px, transparent 1.5px),
+    radial-gradient(circle at 57% 12%, #a5b4d4 0 1px, transparent 1.5px),
+    radial-gradient(circle at 89% 34%, #a5b4d4 0 1px, transparent 1.5px),
+    radial-gradient(circle at 35% 75%, #a5b4d4 0 1px, transparent 1.5px);
+  background-size: 280px 270px, 430px 350px, 380px 390px, 570px 480px;
+}
+@keyframes heroServiceFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-9px); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero-service-float { animation: none; }
+}
