@@ -1,6 +1,6 @@
 import mysql, { type Pool, type RowDataPacket } from "mysql2/promise";
 
-export const localPreviewWithoutDatabase = process.env.NODE_ENV === "development" && !process.env.MYSQL_DATABASE;
+export const localPreviewWithoutDatabase = !process.env.MYSQL_DATABASE;
 
 const globalForDb = globalThis as unknown as { mysqlPool?: Pool };
 
