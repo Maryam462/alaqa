@@ -1,0 +1,8 @@
+import { NextRequest, NextResponse } from "next/server";
+import type { ResultSetHeader, RowDataPacket } from "mysql2";
+import { db, queryRows } from "@/lib/server/db";
+import { requireAdmin } from "@/lib/server/auth";
+import { categorySlug } from "@/lib/categories";
+interface CategoryRow extends RowDataPacket { id: number; name: string; slug: string; description: string | null; postCount: number }
+export async function GET(request: NextRequest) { if (!(await requireAdmin(request))) return NextResponse.json({ message: "Unauthorized" }, { status: 401 }); const rows = await queryRows<CategoryRow[]>("SELECT c.id, c.name, c.slug, COALESCE(c.description, '') AS description, COUNT(p.id) AS postCount FROM blog_categories c LEFT JOIN blog_posts p ON p.category = c.name GROUP BY c.id ORDER BY c.name"); return NextResponse.json({ categories: rows.map(row => ({ ...row, postCount: Number(row.postCount) })) }); }
+export async function POST(request: NextRequest) { if (!(await requireAdmin(request))) return NextResponse.json({ message: "Unauthorized" }, { status: 401 }); const body = await request.json(); const name = String(body.name || "").trim(); const slug = categorySlug(String(body.slug || name)); if (!name || !slug) return NextResponse.json({ message: "Name is required." }, { status: 400 }); try { const [result] = await db.execute<ResultSetHeader>("INSERT INTO blog_categories (name, slug, description) VALUES (?, ?, ?)", [name, slug, String(body.description || "").trim() || null]); return NextResponse.json({ category: { id: result.insertId, name, slug, description: body.description || "", postCount: 0 } }, { status: 201 }); } catch { return NextResponse.json({ message: "Category name or slug already exists." }, { status: 409 }); } }

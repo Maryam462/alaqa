@@ -1,0 +1,6 @@
+"use client";
+import { ArrowRight, Map, MessageSquare, Search, Trophy } from "lucide-react";
+import Link from "next/link";
+import { AnimateIn } from "@/components/AnimateIn";
+const steps=[{title:"Analyze",icon:Search},{title:"Advise",icon:MessageSquare},{title:"Strategy",icon:Map},{title:"Result",icon:Trophy}];
+export function ProcessTeaser(){return <section className="section-padding surface-muted section-grain"><div className="container-padded"><AnimateIn className="mx-auto max-w-3xl text-center"><p className="section-eyebrow">Our Process</p><h2 className="mt-3 section-heading">A Clear Path From Brief to Result</h2><p className="section-subtext mx-auto">Understand the problem, choose the right approach, plan the work, and improve what ships.</p></AnimateIn><div className="mx-auto mt-10 grid max-w-4xl gap-4 sm:grid-cols-4">{steps.map(({title,icon:Icon},i)=><div key={title} className="glass-card p-5 text-center"><span className="mx-auto flex h-11 w-11 items-center justify-center rounded-xl bg-brand-600/10 text-brand-600"><Icon className="h-5 w-5"/></span><p className="mt-3 font-semibold">{i+1}. {title}</p></div>)}</div><div className="mt-8 text-center"><Link href="/about#process" className="inline-flex items-center gap-2 font-semibold text-brand-600 hover:underline">See how we work<ArrowRight className="h-4 w-4"/></Link></div></div></section>}
