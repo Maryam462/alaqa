@@ -1,5 +1,8 @@
 "use client";
 
+import { HomeProjectsSlider } from "@/components/HomeProjectsSlider";
+import { HomeLogistics } from "@/components/HomeLogistics";
+import { FaqsSection } from "@/components/FaqsSection";
 import { ContactSection } from "@/components/ContactSection";
 import { FloatingCTA } from "@/components/FloatingCTA";
 import { Footer } from "@/components/Footer";
@@ -20,12 +23,15 @@ export function HomePageContent() {
         <TrustedBy />
         <BrochureAbout />
         <BrochureServices />
+        <HomeProjectsSlider />
         <TechMarquee />
         <BrochureIndustries />
+        <HomeLogistics />
         <BrochureWhyUs />
         <BrochureBusinessModels />
         <BrochureGoal />
         <BrochureProcess />
+        <FaqsSection />
         <ContactSection />
         <Footer />
       </SiteAtmosphere>
