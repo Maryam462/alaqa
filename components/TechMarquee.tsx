@@ -1,4 +1,5 @@
 "use client";
+import { TechnologyIcon } from "@/components/TechnologyIcon";
 
 import { AnimatePresence, LayoutGroup, motion, useInView } from "framer-motion";
 import {
@@ -16,7 +17,6 @@ import {
   type LucideIcon,
 } from "lucide-react";
 import {
-  useEffect,
   useRef,
   useState,
   type ComponentType,
@@ -103,68 +103,68 @@ const categoryMeta: Record<
 };
 
 const toolVisuals: Record<string, { Icon: IconComp; color: string }> = {
-  "Node.js": { Icon: SiNodedotjs, color: "#909090" },
-  Python: { Icon: SiPython, color: "#6c6c6c" },
-  Laravel: { Icon: SiLaravel, color: "#595959" },
-  Django: { Icon: SiDjango, color: "#252525" },
-  ".NET": { Icon: SiDotnet, color: "#3f3f3f" },
-  Golang: { Icon: SiGo, color: "#8b8b8b" },
-  PHP: { Icon: SiPhp, color: "#7e7e7e" },
-  Rails: { Icon: SiRubyonrails, color: "#2b2b2b" },
-  Rust: { Icon: SiRust, color: "#afafaf" },
-  React: { Icon: SiReact, color: "#c3c3c3" },
-  Vue: { Icon: SiVuedotjs, color: "#9b9b9b" },
-  Angular: { Icon: SiAngular, color: "#333333" },
-  HTML5: { Icon: SiHtml5, color: "#6c6c6c" },
-  CSS: { Icon: SiCss, color: "#636363" },
-  Bootstrap: { Icon: SiBootstrap, color: "#616161" },
-  jQuery: { Icon: SiJquery, color: "#595959" },
-  Android: { Icon: SiAndroid, color: "#b4b4b4" },
-  iOS: { Icon: SiApple, color: "#a9a9a9" },
-  Flutter: { Icon: SiFlutter, color: "#494949" },
-  "React Native": { Icon: SiReact, color: "#c3c3c3" },
-  Kotlin: { Icon: SiKotlin, color: "#686868" },
-  Swift: { Icon: SiSwift, color: "#717171" },
-  Ionic: { Icon: SiIonic, color: "#7a7a7a" },
-  MySQL: { Icon: SiMysql, color: "#717171" },
-  MongoDB: { Icon: SiMongodb, color: "#888888" },
-  PostgreSQL: { Icon: SiPostgresql, color: "#696969" },
-  Firebase: { Icon: SiFirebase, color: "#cacaca" },
-  Oracle: { Icon: FaDatabase, color: "#353535" },
-  "MS SQL": { Icon: DiMsqlServer, color: "#4c4c4c" },
-  WordPress: { Icon: SiWordpress, color: "#666666" },
-  Drupal: { Icon: SiDrupal, color: "#656565" },
-  Shopify: { Icon: SiShopify, color: "#aeaeae" },
-  Strapi: { Icon: SiStrapi, color: "#535353" },
-  Contentful: { Icon: SiContentful, color: "#6c6c6c" },
-  AWS: { Icon: FaAws, color: "#a4a4a4" },
-  Azure: { Icon: TbBrandAzure, color: "#656565" },
-  GCP: { Icon: SiGooglecloud, color: "#7f7f7f" },
-  DigitalOcean: { Icon: SiDigitalocean, color: "#6e6e6e" },
-  Vercel: { Icon: SiVercel, color: "#181818" },
-  Netlify: { Icon: SiNetlify, color: "#9c9c9c" },
-  Jest: { Icon: SiJest, color: "#3a3a3a" },
-  Cypress: { Icon: SiCypress, color: "#b9b9b9" },
-  Selenium: { Icon: SiSelenium, color: "#8f8f8f" },
-  Playwright: { Icon: Code2, color: "#898989" },
-  Mocha: { Icon: SiMocha, color: "#6d6d6d" },
-  Docker: { Icon: SiDocker, color: "#848484" },
-  Kubernetes: { Icon: SiKubernetes, color: "#686868" },
-  Jenkins: { Icon: SiJenkins, color: "#656565" },
-  "GitHub Actions": { Icon: SiGithubactions, color: "#7a7a7a" },
-  Terraform: { Icon: SiTerraform, color: "#575757" },
-  MERN: { Icon: SiMongodb, color: "#888888" },
-  MEAN: { Icon: SiAngular, color: "#333333" },
-  "Next.js": { Icon: SiNextdotjs, color: "#181818" },
-  Nuxt: { Icon: SiNuxt, color: "#a7a7a7" },
-  "Laravel + Vue": { Icon: SiLaravel, color: "#595959" },
-  Solidity: { Icon: SiSolidity, color: "#999999" },
-  Ethereum: { Icon: SiEthereum, color: "#a1a1a1" },
-  Solana: { Icon: SiSolana, color: "#bbbbbb" },
-  Hardhat: { Icon: FaRobot, color: "#e3e3e3" },
-  Truffle: { Icon: Code2, color: "#4c4c4c" },
-  Binance: { Icon: SiBinance, color: "#b8b8b8" },
-  Matic: { Icon: SiPolygon, color: "#5f5f5f" },
+  "Node.js": { Icon: SiNodedotjs, color: "#5FA04E" },
+  Python: { Icon: SiPython, color: "#3776AB" },
+  Laravel: { Icon: SiLaravel, color: "#FF2D20" },
+  Django: { Icon: SiDjango, color: "#092E20" },
+  ".NET": { Icon: SiDotnet, color: "#512BD4" },
+  Golang: { Icon: SiGo, color: "#00ADD8" },
+  PHP: { Icon: SiPhp, color: "#777BB4" },
+  Rails: { Icon: SiRubyonrails, color: "#D30001" },
+  Rust: { Icon: SiRust, color: "#DEA584" },
+  React: { Icon: SiReact, color: "#61DAFB" },
+  Vue: { Icon: SiVuedotjs, color: "#4FC08D" },
+  Angular: { Icon: SiAngular, color: "#DD0031" },
+  HTML5: { Icon: SiHtml5, color: "#E34F26" },
+  CSS: { Icon: SiCss, color: "#663399" },
+  Bootstrap: { Icon: SiBootstrap, color: "#7952B3" },
+  jQuery: { Icon: SiJquery, color: "#0769AD" },
+  Android: { Icon: SiAndroid, color: "#3DDC84" },
+  iOS: { Icon: SiApple, color: "#A2AAAD" },
+  Flutter: { Icon: SiFlutter, color: "#02569B" },
+  "React Native": { Icon: SiReact, color: "#61DAFB" },
+  Kotlin: { Icon: SiKotlin, color: "#7F52FF" },
+  Swift: { Icon: SiSwift, color: "#F05138" },
+  Ionic: { Icon: SiIonic, color: "#3880FF" },
+  MySQL: { Icon: SiMysql, color: "#4479A1" },
+  MongoDB: { Icon: SiMongodb, color: "#47A248" },
+  PostgreSQL: { Icon: SiPostgresql, color: "#4169E1" },
+  Firebase: { Icon: SiFirebase, color: "#FFCA28" },
+  Oracle: { Icon: FaDatabase, color: "#F80000" },
+  "MS SQL": { Icon: DiMsqlServer, color: "#CC2927" },
+  WordPress: { Icon: SiWordpress, color: "#21759B" },
+  Drupal: { Icon: SiDrupal, color: "#0678BE" },
+  Shopify: { Icon: SiShopify, color: "#7AB55C" },
+  Strapi: { Icon: SiStrapi, color: "#4945FF" },
+  Contentful: { Icon: SiContentful, color: "#2478CC" },
+  AWS: { Icon: FaAws, color: "#FF9900" },
+  Azure: { Icon: TbBrandAzure, color: "#0078D4" },
+  GCP: { Icon: SiGooglecloud, color: "#4285F4" },
+  DigitalOcean: { Icon: SiDigitalocean, color: "#0080FF" },
+  Vercel: { Icon: SiVercel, color: "#FFFFFF" },
+  Netlify: { Icon: SiNetlify, color: "#00C7B7" },
+  Jest: { Icon: SiJest, color: "#C21325" },
+  Cypress: { Icon: SiCypress, color: "#69D3A7" },
+  Selenium: { Icon: SiSelenium, color: "#43B02A" },
+  Playwright: { Icon: Code2, color: "#2EAD33" },
+  Mocha: { Icon: SiMocha, color: "#8D6748" },
+  Docker: { Icon: SiDocker, color: "#2496ED" },
+  Kubernetes: { Icon: SiKubernetes, color: "#326CE5" },
+  Jenkins: { Icon: SiJenkins, color: "#D24939" },
+  "GitHub Actions": { Icon: SiGithubactions, color: "#2088FF" },
+  Terraform: { Icon: SiTerraform, color: "#844FBA" },
+  MERN: { Icon: SiMongodb, color: "#47A248" },
+  MEAN: { Icon: SiAngular, color: "#DD0031" },
+  "Next.js": { Icon: SiNextdotjs, color: "#FFFFFF" },
+  Nuxt: { Icon: SiNuxt, color: "#00DC82" },
+  "Laravel + Vue": { Icon: SiLaravel, color: "#FF2D20" },
+  Solidity: { Icon: SiSolidity, color: "#808080" },
+  Ethereum: { Icon: SiEthereum, color: "#627EEA" },
+  Solana: { Icon: SiSolana, color: "#14F195" },
+  Hardhat: { Icon: FaRobot, color: "#FFF100" },
+  Truffle: { Icon: Code2, color: "#5E464D" },
+  Binance: { Icon: SiBinance, color: "#F0B90B" },
+  Matic: { Icon: SiPolygon, color: "#8247E5" },
 };
 
 function ToolBadge({
@@ -203,18 +203,12 @@ function ToolBadge({
         )}
       >
         <div className="pointer-events-none absolute inset-0 rounded-2xl bg-gradient-to-br from-brand-400/10 via-transparent to-transparent opacity-0 transition-opacity duration-300 group-hover/badge:opacity-100 sm:rounded-[1.15rem]" />
-        <Icon
+        <TechnologyIcon name={name} Icon={Icon} color={name === "Next.js" || name === "Vercel" || name === "iOS" ? "currentColor" : color}
           className={cn(
             "relative h-6 w-6 sm:h-7 sm:w-7",
             (name === "Next.js" || name === "Vercel" || name === "iOS") &&
               "text-slate-800 dark:text-slate-100"
           )}
-          style={
-            name === "Next.js" || name === "Vercel" || name === "iOS"
-              ? undefined
-              : { color }
-          }
-          aria-hidden
         />
       </div>
       <span
@@ -232,19 +226,15 @@ function ToolBadge({
 
 export function TechMarquee() {
   const [active, setActive] = useState<TechCategory>("Backend");
-  const [entered, setEntered] = useState(false);
   const sectionRef = useRef<HTMLElement>(null);
   const tabsRef = useRef<HTMLDivElement>(null);
-  const inView = useInView(sectionRef, { once: true, amount: 0.25 });
+  const entered = useInView(sectionRef, { once: true, amount: 0.25 });
 
   const tools = techCategories[active];
   // Repeat until half-track is wide enough for a seamless loop (avoids empty gap)
   const copies = Math.max(4, Math.ceil(12 / Math.max(tools.length, 1)));
   const track = Array.from({ length: copies }, () => tools).flat();
 
-  useEffect(() => {
-    if (inView) setEntered(true);
-  }, [inView]);
 
   return (
     <section

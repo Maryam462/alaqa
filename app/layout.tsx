@@ -45,7 +45,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en" data-scroll-behavior="smooth" suppressHydrationWarning>
       <body className={`${spaceGrotesk.variable} font-sans`}>
         <ThemeProvider>
           <div className="relative min-h-screen flex flex-col">{children}</div>

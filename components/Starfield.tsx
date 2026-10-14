@@ -1,4 +1,5 @@
 "use client";
+import { TechnologyIcon } from "@/components/TechnologyIcon";
 
 import Image from "next/image";
 import {
@@ -8,7 +9,8 @@ import {
   type ComponentType,
   type CSSProperties,
 } from "react";
-import { FaAws, FaRobot } from "react-icons/fa";
+import { FaAws } from "react-icons/fa";
+import { TbBrandOpenai } from "react-icons/tb";
 import {
   SiEthereum,
   SiFigma,
@@ -67,9 +69,9 @@ const rings: OrbitRing[] = [
     sizePct: 42,
     duration: "22s",
     logos: [
-      { label: "React", Icon: SiReact, color: "#c3c3c3", angle: 0 },
-      { label: "Next.js", Icon: SiNextdotjs, color: "#fafafa", angle: 120 },
-      { label: "Node.js", Icon: SiNodedotjs, color: "#909090", angle: 240 },
+      { label: "React", Icon: SiReact, color: "#61DAFB", angle: 0 },
+      { label: "Next.js", Icon: SiNextdotjs, color: "#FFFFFF", angle: 120 },
+      { label: "Node.js", Icon: SiNodedotjs, color: "#5FA04E", angle: 240 },
     ],
   },
   {
@@ -77,19 +79,19 @@ const rings: OrbitRing[] = [
     duration: "36s",
     reverse: true,
     logos: [
-      { label: "Python", Icon: SiPython, color: "#d2d2d2", angle: 15 },
-      { label: "Flutter", Icon: SiFlutter, color: "#b6b6b6", angle: 105 },
-      { label: "Ethereum", Icon: SiEthereum, color: "#a1a1a1", angle: 195 },
-      { label: "OpenAI", Icon: FaRobot, color: "#fafafa", angle: 285 },
+      { label: "Python", Icon: SiPython, color: "#3776AB", angle: 15 },
+      { label: "Flutter", Icon: SiFlutter, color: "#02569B", angle: 105 },
+      { label: "Ethereum", Icon: SiEthereum, color: "#627EEA", angle: 195 },
+      { label: "OpenAI", Icon: TbBrandOpenai, color: "#10A37F", angle: 285 },
     ],
   },
   {
     sizePct: 94,
     duration: "52s",
     logos: [
-      { label: "AWS", Icon: FaAws, color: "#a4a4a4", angle: 40 },
-      { label: "Figma", Icon: SiFigma, color: "#6d6d6d", angle: 160 },
-      { label: "MongoDB", Icon: SiMongodb, color: "#888888", angle: 280 },
+      { label: "AWS", Icon: FaAws, color: "#FF9900", angle: 40 },
+      { label: "Figma", Icon: SiFigma, color: "#F24E1E", angle: 160 },
+      { label: "MongoDB", Icon: SiMongodb, color: "#47A248", angle: 280 },
     ],
   },
 ];
@@ -99,7 +101,6 @@ type StarfieldProps = {
 };
 
 export function Starfield({ reduced = false }: StarfieldProps) {
-  const [mounted, setMounted] = useState(false);
   const [pausedRing, setPausedRing] = useState<number | null>(null);
   const rootRef = useRef<HTMLDivElement>(null);
   const starCount = reduced ? 40 : 72;
@@ -107,7 +108,6 @@ export function Starfield({ reduced = false }: StarfieldProps) {
     seededStar(i, starCount)
   );
 
-  useEffect(() => setMounted(true), []);
 
   useEffect(() => {
     if (reduced) return;
@@ -143,7 +143,7 @@ export function Starfield({ reduced = false }: StarfieldProps) {
             "translate3d(calc(var(--px) * 0.4), calc(var(--py) * 0.4), 0)",
         }}
       >
-        {mounted &&
+        {
           stars.map((star) => (
             <span
               key={star.id}
@@ -160,7 +160,7 @@ export function Starfield({ reduced = false }: StarfieldProps) {
           ))}
       </div>
 
-      {mounted && (
+      { (
         <div
           className="orbit-system pointer-events-none absolute left-1/2 top-[48%] will-change-transform"
           style={{
@@ -215,10 +215,8 @@ export function Starfield({ reduced = false }: StarfieldProps) {
                             {/* 2) Then un-squash → perfect circle badges */}
                             <div className="orbit-badge-unsquash">
                               <div className="orbit-badge" title={logo.label}>
-                                <Icon
+                                <TechnologyIcon name={logo.label} Icon={Icon} color={logo.color}
                                   className="h-[clamp(0.9rem,2.1vmin,1.35rem)] w-[clamp(0.9rem,2.1vmin,1.35rem)]"
-                                  style={{ color: logo.color }}
-                                  aria-hidden
                                 />
                                 <span className="sr-only">{logo.label}</span>
                               </div>
