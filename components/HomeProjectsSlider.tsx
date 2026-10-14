@@ -93,7 +93,7 @@ export function HomeProjectsSlider() {
           </div>
         </article>)}
       </div>
-      <div className="mt-6 flex flex-wrap items-center justify-between gap-3">
+      <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row sm:gap-5">
         <div className="flex items-center gap-1">{portfolioProjects.slice(0,maxStart+1).map((project,index)=><button key={project.slug} type="button" aria-label={"Show projects starting with " + project.title} aria-current={active===index ? "true" : undefined} onClick={()=>goTo(index)} className="flex h-8 w-8 items-center justify-center rounded-full focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-500"><span className={"h-2 rounded-full transition-all " + (active===index ? "w-6 bg-brand-950 dark:bg-white" : "w-2 bg-slate-300 dark:bg-slate-600")} /></button>)}</div>
         <div className="flex items-center gap-2">
           <button type="button" aria-label={autoPlay ? "Pause automatic sliding" : "Resume automatic sliding"} aria-pressed={!autoPlay} onClick={()=>setAutoPlay(value=>!value)} className="grid h-11 w-11 place-items-center rounded-full border border-slate-300 bg-white text-slate-800 dark:border-slate-600 dark:bg-surface-card dark:text-white">{autoPlay ? <Pause className="h-4 w-4" /> : <Play className="h-4 w-4" />}</button>
