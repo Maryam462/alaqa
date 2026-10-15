@@ -16,6 +16,7 @@ export const navLinks = [
       { label: "Content Writer", href: "/service/content-writing" },
     ],
   },
+  { label: "Logistics", href: "/logistics" },
   { label: "Industries", href: "/industries" },
   { label: "Portfolio", href: "/portfolio" },
   {

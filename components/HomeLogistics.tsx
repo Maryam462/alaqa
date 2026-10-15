@@ -11,7 +11,7 @@ export function HomeLogistics() {
           <p className="text-xs font-medium uppercase tracking-[0.25em] text-[#c3b49a]">Logistics &amp; Transportation</p>
           <h2 className="mt-4 text-balance text-3xl font-medium leading-tight tracking-tight sm:text-5xl lg:text-6xl">A smarter journey.<br /><span className="text-white/50">An exceptional experience.</span></h2>
         </AnimateIn>
-        <AnimateIn className="max-w-sm"><p className="text-sm leading-relaxed text-white/55 sm:text-base">Thoughtful digital solutions for premium transport, connected fleets, and seamless operations. Built around the people behind every journey.</p></AnimateIn>
+        <AnimateIn className="max-w-sm"><p className="text-sm leading-relaxed text-white/55 sm:text-base">Luxury car bookings, airport transfers, and private chauffeur services. Thoughtfully arranged around your schedule, your comfort, and every destination.</p></AnimateIn>
       </div>
       <div className="grid gap-4 lg:grid-cols-[1.65fr_1fr] lg:gap-6">
         <AnimateIn>
@@ -33,8 +33,8 @@ export function HomeLogistics() {
           <div className="rounded-[1.5rem] border border-white/10 bg-white/[0.035] p-6 sm:p-7">
             <p className="text-[10px] uppercase tracking-[0.2em] text-[#c3b49a]">From booking to arrival</p>
             <p className="mt-3 text-xl font-medium tracking-tight text-white">Bring the entire journey together.</p>
-            <p className="mt-3 text-sm leading-relaxed text-white/50">Booking tools, driver applications, and clear customer updates, connected through a dependable operational platform.</p>
-            <Link href="/industries#industry-logistics-transportation" className="mt-5 inline-flex items-center gap-3 text-sm font-semibold text-[#e0d3bc] transition hover:text-white">Explore transport solutions<ArrowUpRight className="h-4 w-4" /></Link>
+            <p className="mt-3 text-sm leading-relaxed text-white/50">From corporate travel to special occasions, discover a more considered way to travel with premium vehicles and personal attention.</p>
+            <Link href="/logistics" className="mt-5 inline-flex items-center gap-3 text-sm font-semibold text-[#e0d3bc] transition hover:text-white">Explore luxury travel<ArrowUpRight className="h-4 w-4" /></Link>
           </div>
         </AnimateIn>
       </div>

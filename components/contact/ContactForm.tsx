@@ -31,6 +31,7 @@ const services = [
   "Digital Marketing",
   "AI Development",
   "Content Writing",
+  "Logistics & Luxury Travel",
   "Other",
 ] as const;
 
